@@ -74,13 +74,20 @@
     - [x] ContentTypeId enum 추가 (PRD 4.4의 관광 타입 ID: 12, 14, 15, 25, 28, 32, 38, 39)
     - [x] `lib/types/stats.ts`의 타입 정의가 PRD 2.6 요구사항과 일치하는지 검증
     - [x] `lib/types/stats.ts`에 파일 헤더 주석 및 각 인터페이스/필드에 JSDoc 주석 추가
-- [ ] 레이아웃 구조
-  - [ ] `app/layout.tsx` 업데이트
-    - [ ] 메타데이터 설정
-    - [ ] 헤더/푸터 구조 확인
-  - [ ] `components/Navbar.tsx` 업데이트
-    - [ ] 로고, 검색창, 로그인 버튼
-    - [ ] 네비게이션 링크 (홈, 통계, 북마크)
+- [x] 레이아웃 구조
+  - [x] `app/layout.tsx` 업데이트
+    - [x] 메타데이터 설정
+    - [x] 헤더/푸터 구조 확인
+  - [x] `components/Navbar.tsx` 업데이트
+    ***
+    - [x] **개선 사항 (Phase 1 개선 작업)**
+    - [x] app/layout.tsx의 메타데이터 확장 (description, keywords, Open Graph, Twitter Card)
+    - [x] components/Navbar.tsx에 검색창 UI 추가 (PRD 2.3 요구사항: 최소 300px 모바일, 500px 데스크톱)
+    - [x] components/Footer.tsx 생성 (저작권, 서비스 정보, 반응형 디자인)
+    - [x] app/layout.tsx에 Footer 컴포넌트 추가 및 레이아웃 구조 완성
+    - [x] 전체 레이아웃이 모바일/태블릿/데스크톱에서 반응형으로 작동하는지 확인
+    - [x] 로고, 검색창, 로그인 버튼
+    - [x] 네비게이션 링크 (홈, 통계, 북마크)
 - [ ] 공통 컴포넌트
   - [ ] `components/ui/loading.tsx` - 로딩 스피너
   - [ ] `components/ui/skeleton.tsx` - 스켈레톤 UI
