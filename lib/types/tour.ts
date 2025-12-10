@@ -1,3 +1,13 @@
+/**
+ * @file tour.ts
+ * @description 한국관광공사 API 관련 타입 정의
+ *
+ * 이 파일은 한국관광공사 공공 API를 사용하기 위한 TypeScript 타입 정의를 포함합니다.
+ * - API 응답 구조
+ * - 관광지 데이터 타입
+ * - 에러 처리 타입
+ */
+
 export interface ApiResponse<T> {
     response: {
         header: {
@@ -13,6 +23,59 @@ export interface ApiResponse<T> {
             totalCount: number;
         };
     };
+}
+
+/**
+ * 에러 타입 구분
+ */
+export enum TourApiErrorType {
+    NETWORK_ERROR = "NETWORK_ERROR",
+    API_ERROR = "API_ERROR",
+    TIMEOUT_ERROR = "TIMEOUT_ERROR",
+    PARAMETER_ERROR = "PARAMETER_ERROR",
+    UNKNOWN_ERROR = "UNKNOWN_ERROR",
+}
+
+/**
+ * Tour API 에러 클래스
+ * 한국관광공사 API 호출 시 발생하는 에러를 처리하기 위한 커스텀 에러 클래스
+ */
+export class TourApiError extends Error {
+    public readonly type: TourApiErrorType;
+    public readonly retryable: boolean;
+    public readonly originalError?: Error;
+    public readonly url?: string;
+    public readonly statusCode?: number;
+    public readonly resultCode?: string;
+    public readonly resultMsg?: string;
+
+    constructor(
+        message: string,
+        type: TourApiErrorType,
+        options?: {
+            retryable?: boolean;
+            originalError?: Error;
+            url?: string;
+            statusCode?: number;
+            resultCode?: string;
+            resultMsg?: string;
+        }
+    ) {
+        super(message);
+        this.name = "TourApiError";
+        this.type = type;
+        this.retryable = options?.retryable ?? false;
+        this.originalError = options?.originalError;
+        this.url = options?.url;
+        this.statusCode = options?.statusCode;
+        this.resultCode = options?.resultCode;
+        this.resultMsg = options?.resultMsg;
+
+        // Maintains proper stack trace for where our error was thrown (only available on V8)
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, TourApiError);
+        }
+    }
 }
 
 export interface AreaCodeItem {

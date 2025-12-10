@@ -37,29 +37,24 @@
     - [ ] `NEXT_PUBLIC_NAVER_MAP_CLIENT_ID` (네이버 지도)
     - [ ] Clerk 인증 키 확인
     - [ ] Supabase 키 확인
-  - [ ] `.env.example` 파일 생성
 - [ ] API 클라이언트 구현
-  - [ ] `lib/api/tour-api.ts` 생성
-    - [ ] `getAreaCode()` - 지역코드 조회 (`areaCode2`)
-    - [ ] `getAreaBasedList()` - 지역 기반 목록 (`areaBasedList2`)
-    - [ ] `searchKeyword()` - 키워드 검색 (`searchKeyword2`)
-    - [ ] `getDetailCommon()` - 공통 정보 (`detailCommon2`)
-    - [ ] `getDetailIntro()` - 소개 정보 (`detailIntro2`)
-    - [ ] `getDetailImage()` - 이미지 목록 (`detailImage2`)
-    - [ ] `getDetailPetTour()` - 반려동물 정보 (`detailPetTour2`)
-    - [ ] 공통 파라미터 처리 (serviceKey, MobileOS, MobileApp, _type)
-    - [ ] 에러 처리 및 재시도 로직
-    ---
-    - [x] **상세 구현 작업**
-      - [x] `lib/types/tour.ts` 정의 (API 응답 타입)
-      - [x] `lib/api/tour-api.ts`: 기본 `fetch` 래퍼 함수 구현 (파라미터/에러 처리)
-      - [x] `lib/api/tour-api.ts`: `getAreaCode` 구현
-      - [x] `lib/api/tour-api.ts`: `getAreaBasedList` 구현
-      - [x] `lib/api/tour-api.ts`: `searchKeyword` 구현
-      - [x] `lib/api/tour-api.ts`: `getDetailCommon` 구현
-      - [x] `lib/api/tour-api.ts`: `getDetailIntro` 구현
-      - [x] `lib/api/tour-api.ts`: `getDetailImage` 구현
-      - [x] `lib/api/tour-api.ts`: `getDetailPetTour` 구현
+  - [x] `lib/api/tour-api.ts` 생성
+    - [x] `getAreaCode()` - 지역코드 조회 (`areaCode2`)
+    - [x] `getAreaBasedList()` - 지역 기반 목록 (`areaBasedList2`)
+    - [x] `searchKeyword()` - 키워드 검색 (`searchKeyword2`)
+    - [x] `getDetailCommon()` - 공통 정보 (`detailCommon2`)
+    - [x] `getDetailIntro()` - 소개 정보 (`detailIntro2`)
+    - [x] `getDetailImage()` - 이미지 목록 (`detailImage2`)
+    - [x] `getDetailPetTour()` - 반려동물 정보 (`detailPetTour2`)
+    - [x] 공통 파라미터 처리 (serviceKey, MobileOS, MobileApp, \_type)
+    - [x] 에러 처리 및 재시도 로직
+    ***
+    - [x] **개선 사항 (Phase 1 개선 작업)**
+    - [x] `lib/types/tour.ts`에 TourApiError 클래스 및 에러 타입 enum 추가
+    - [x] `lib/api/tour-api.ts`에 fetchWithRetry 헬퍼 함수 구현 (exponential backoff, 타임아웃 포함)
+    - [x] fetchTourApi 함수에 향상된 에러 처리 로직 추가 (에러 코드별 처리, 상세 로그)
+    - [x] 구조화된 로깅 추가 (console.group 사용, 개발 환경에서만 상세 로그)
+    - [x] API 키 인코딩 처리 개선 (이미 인코딩된 키 감지 및 안전한 처리)
 - [ ] 타입 정의
   - [ ] `lib/types/tour.ts` 생성
     - [ ] `TourItem` 인터페이스 (목록)

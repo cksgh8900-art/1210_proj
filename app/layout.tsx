@@ -5,6 +5,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
 import { SyncUserProvider } from "@/components/providers/sync-user-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SaaS 템플릿",
-  description: "Next.js + Clerk + Supabase 보일러플레이트",
+  title: "My Trip - 한국 관광지 정보 서비스",
+  description: "전국의 관광지 정보를 검색하고 여행을 계획하세요.",
 };
 
 export default function RootLayout({
@@ -29,14 +31,24 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider localization={clerkLocalization}>
-      <html lang="ko">
+      <html lang="ko" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
         >
-          <SyncUserProvider>
-            <Navbar />
-            {children}
-          </SyncUserProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SyncUserProvider>
+              <Navbar />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Toaster />
+            </SyncUserProvider>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
