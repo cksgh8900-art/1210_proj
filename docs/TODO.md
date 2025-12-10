@@ -55,17 +55,25 @@
     - [x] fetchTourApi 함수에 향상된 에러 처리 로직 추가 (에러 코드별 처리, 상세 로그)
     - [x] 구조화된 로깅 추가 (console.group 사용, 개발 환경에서만 상세 로그)
     - [x] API 키 인코딩 처리 개선 (이미 인코딩된 키 감지 및 안전한 처리)
-- [ ] 타입 정의
-  - [ ] `lib/types/tour.ts` 생성
-    - [ ] `TourItem` 인터페이스 (목록)
-    - [ ] `TourDetail` 인터페이스 (상세)
-    - [ ] `TourIntro` 인터페이스 (운영정보)
-    - [ ] `TourImage` 인터페이스 (이미지)
-    - [ ] `PetTourInfo` 인터페이스 (반려동물)
-  - [ ] `lib/types/stats.ts` 생성
-    - [ ] `RegionStats` 인터페이스
-    - [ ] `TypeStats` 인터페이스
-    - [ ] `StatsSummary` 인터페이스
+- [x] 타입 정의
+  - [x] `lib/types/tour.ts` 생성
+    - [x] `TourItem` 인터페이스 (목록)
+    - [x] `TourDetail` 인터페이스 (상세)
+    - [x] `TourIntro` 인터페이스 (운영정보)
+    - [x] `TourImage` 인터페이스 (이미지)
+    - [x] `PetTourInfo` 인터페이스 (반려동물)
+  - [x] `lib/types/stats.ts` 생성
+    - [x] `RegionStats` 인터페이스
+    - [x] `TypeStats` 인터페이스
+    - [x] `StatsSummary` 인터페이스
+    ***
+    - [x] **개선 사항 (Phase 1 개선 작업)**
+    - [x] `lib/types/tour.ts`의 TourItem, TourDetail, TourIntro, TourImage 인터페이스를 PRD 요구사항과 비교하여 검증
+    - [x] PetTourInfo 인터페이스를 PRD 2.5의 데이터 구조 예시에 맞게 수정 (petTours 배열 구조에서 평면 구조로 변경)
+    - [x] `lib/types/tour.ts`의 모든 인터페이스와 필드에 JSDoc 주석 추가 (한글 설명)
+    - [x] ContentTypeId enum 추가 (PRD 4.4의 관광 타입 ID: 12, 14, 15, 25, 28, 32, 38, 39)
+    - [x] `lib/types/stats.ts`의 타입 정의가 PRD 2.6 요구사항과 일치하는지 검증
+    - [x] `lib/types/stats.ts`에 파일 헤더 주석 및 각 인터페이스/필드에 JSDoc 주석 추가
 - [ ] 레이아웃 구조
   - [ ] `app/layout.tsx` 업데이트
     - [ ] 메타데이터 설정
